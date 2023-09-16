@@ -63,7 +63,7 @@ var array = [];
 var x_limit = 200;
 var y_limit = 150;
 var char_ = ".";
-var input_str = "";
+var input_str = "abcde";
 
 
 // Makes an array that has spaces
@@ -98,6 +98,16 @@ function vertical_slab_H(startX, startY, height = 4, width = 10, space = 20){
     }
 }
 
+function vertical_slab_C(startX, startY, height = 8, width = 12) {
+    for (i = 0; i < width; i++) {
+        for (j = 0; j < height; j++) {
+            if (i < width) {
+                array[startY + j][startX + i] = char_;
+            }
+        }
+    }
+}
+
 function printArray() {
     for (k = 0; k < y_limit; k++) {
         for (q = 0; q < x_limit; q++) {
@@ -113,6 +123,7 @@ function A(start_index) {
     horizontal_slab(start_index, 8);
     vertical_slab_H(start_index, 11);
 }
+
 function B(start_index) {
     horizontal_slab(start_index, 1, 3, 37);
     vertical_slab_H(start_index, 4, 3);
@@ -120,24 +131,33 @@ function B(start_index) {
     vertical_slab_H(start_index, 10, 2);
     horizontal_slab(start_index, 12, 3, 37);
 }
+
 function C(start_index) {
     horizontal_slab(start_index, 1);
+    vertical_slab_C(start_index, 4);
+    horizontal_slab(start_index, 12);
+}
+
+function D(start_index) {
+    horizontal_slab(start_index, 1, 3, 37);
+    vertical_slab_H(start_index, 4, 8);
+    horizontal_slab(start_index, 12, 3, 37);
+}
+
+function E(start_index) {
+    horizontal_slab(start_index, 1);
+    
+    horizontal_slab(start_index, 12);
 }
 
 var start_x = 1;
 var gap = 50;
-input_str = "aaB";
-
 
 var index = 0;
 
 while(index < input_str.length) {
     inp = input_str.toLowerCase()[index];
-    if (inp == "a") {
-        A(start_x);
-    } else if (inp == "b") {
-        B(start_x);
-    }
+    window[inp.toUpperCase()](start_x);
     start_x += gap;
     index++;
 }
