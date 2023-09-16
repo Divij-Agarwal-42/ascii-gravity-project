@@ -60,10 +60,11 @@ document.getElementById("").write()
 //START 2
 
 var array = [];
-x_limit = 200;
-y_limit = 50;
+var x_limit = 200;
+var y_limit = 150;
 var char_ = ".";
-var input_str = "aaA";
+var input_str = "";
+
 
 // Makes an array that has spaces
 // x starts from 0, y from 1
@@ -123,22 +124,37 @@ function C(start_index) {
     horizontal_slab(start_index, 1);
 }
 
-start_x = 1;
-gap = 50;
+var start_x = 1;
+var gap = 50;
+input_str = "aaB";
 
-for (var i = 0; i < input_str.length; i++) {
-    f = input_str[i].toUpperCase();
-    console.log(f);
-    if (f === "A"){
-        console.log("AAA");
-        A(start_x + gap * i);
-    } else if (f === "B") {
-        B(start_x + gap * i);
-        console.log("NNN");
+
+var index = 0;
+
+while(index < input_str.length) {
+    inp = input_str.toLowerCase()[index];
+    if (inp == "a") {
+        A(start_x);
+    } else if (inp == "b") {
+        B(start_x);
     }
+    start_x += gap;
+    index++;
 }
 
+// Why does this not work ?? 
+// for (p = 0; p < input_str.length; p++) {
+//     inp = input_str.toLowerCase()[p];
+//     if (inp == "a") {
+//         A(start_x);
+//     } else if (inp == "b") {
+//         B(start_x);
+//     }
+//     start_x += gap;
+// }
+
 printArray();
+
 
 // END 2
 
