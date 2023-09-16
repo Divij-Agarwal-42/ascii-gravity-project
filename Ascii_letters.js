@@ -63,7 +63,7 @@ var array = [];
 var x_limit = 200;
 var y_limit = 150;
 var char_ = ".";
-var input_str = "abcde";
+var input_str = "jab";
 
 
 // Makes an array that has spaces
@@ -108,6 +108,15 @@ function vertical_slab_C(startX, startY, height = 8, width = 12) {
     }
 }
 
+function vertical_slab_mid(startX, startY, height = 8, width = 12) {
+    for (i = 0; i < 40; i++) {
+        for (j = 0; j < height; j++) {
+            if (i < (40 - width) && (i > width)) {
+                array[startY + j][startX + i] = char_;
+            }
+        }
+    }
+}
 function printArray() {
     for (k = 0; k < y_limit; k++) {
         for (q = 0; q < x_limit; q++) {
@@ -146,9 +155,85 @@ function D(start_index) {
 
 function E(start_index) {
     horizontal_slab(start_index, 1);
-    
+    vertical_slab_C(start_index, 4, 2);
+    horizontal_slab(start_index, 6);
+    vertical_slab_C(start_index, 9, 3);
+    horizontal_slab(start_index, 12,);
+}
+
+function F(start_index) {
+    horizontal_slab(start_index, 1);
+    vertical_slab_C(start_index, 4, 2);
+    horizontal_slab(start_index, 6, 3, 30);
+    vertical_slab_C(start_index, 9, 6);
+}
+
+function G(start_index) {
+    horizontal_slab(start_index, 1);
+    vertical_slab_C(start_index, 4);
+}
+
+function H(start_index) {
+    vertical_slab_H(start_index, 1, 5);
+    horizontal_slab(start_index, 6);
+    vertical_slab_H(start_index, 9, 6);
+}
+
+function L(start_index) {
+    vertical_slab_C(start_index, 1, 11);
+    horizontal_slab(start_index, 12)
+}
+
+function O(start_index) {
+    horizontal_slab(start_index, 1);
+    vertical_slab_H(start_index, 4, 8);
     horizontal_slab(start_index, 12);
 }
+
+function P(start_index) {
+    horizontal_slab(start_index, 1);
+    vertical_slab_H(start_index, 4, 3);
+    horizontal_slab(start_index, 7);
+    vertical_slab_C(start_index, 10, 5);
+}
+
+function R(start_index) {
+    horizontal_slab(start_index, 1, 3, 37);
+    vertical_slab_H(start_index, 4);
+    horizontal_slab(start_index, 7, 3, 35);
+    vertical_slab_H(start_index, 10, 5);
+}
+
+function U(start_index) {
+
+    vertical_slab_H(start_index, 1, 11);
+    horizontal_slab(start_index, 12);
+}
+
+function I(start_index) {
+    horizontal_slab(start_index, 1);
+    vertical_slab_mid(start_index, 4);
+    horizontal_slab(start_index, 12);
+}
+
+function Y(start_index) {
+    vertical_slab_H(start_index, 1, 5);
+    horizontal_slab(start_index, 6, 2);
+    vertical_slab_mid(start_index, 8, 7, 13);
+
+}
+
+function T(start_index) {
+    horizontal_slab(start_index, 1);
+    vertical_slab_mid(start_index, 4, 11, 13);
+}
+
+function J(start_index) {
+    horizontal_slab(start_index, 1);
+    vertical_slab_mid(start_index, 4, 8, 13);
+    horizontal_slab(start_index, 12, 3, 27);
+}
+
 
 var start_x = 1;
 var gap = 50;
