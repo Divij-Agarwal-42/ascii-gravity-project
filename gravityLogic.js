@@ -1,7 +1,8 @@
 //This is the gravity logic for the website
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-ctx.font = "30px Arial";
+let backgroundColor = "white";
+let textColor = "black";
 let userInput = "";
 var x = 0;
 let testArray = [[".", ".", "."], 
@@ -19,17 +20,13 @@ var char = ".";
 start_x = 1;
 gap = 50;
 
-document.getElementById("canvas").style.lineHeight = "3px"; 
-
 const sleep = (time) => {
     return new Promise((resolve) => setTimeout(resolve, time))
 }
 
-document.getElementById("DrawButton").addEventListener("click", function() {
+document.getElementById("InitializeButton").addEventListener("click", function() {
     userInput = document.getElementById("TextInput").value;
     modifyUserString(userInput);
-});
-document.getElementById("InitializeButton").addEventListener("click", function() {
     ctx.font = "bold 8px Arial";
     printTotalArray(array);
 });
@@ -40,7 +37,22 @@ document.getElementById("AnimateButton").addEventListener("click", function() {
 });
 document.getElementById("StopButton").addEventListener("click", function() {
     location.reload();
+    colorScheme(backgroundColor, textColor);
 });
+document.getElementById("DarkButton").addEventListener("click", function() {
+    backgroundColor = document.getElementById("ColorInput").value;
+    textColor = document.getElementById("Color2Input").value;
+    colorScheme(backgroundColor, textColor);
+    clearInput("ColorInput");
+    clearInput("Color2Input");
+});
+
+function clearInput(element){
+    var getValue= document.getElementById(element);
+      if (getValue.value !="") {
+          getValue.value = "";
+      }
+}
 
 function printArray(array){
     let string = "";
@@ -78,9 +90,15 @@ function printTotalArray(array){
     }
 }
 
+function colorScheme(background, text){
+    ctx.fillStyle = background;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = text;
+}
+
 async function draw(){
     
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    colorScheme(backgroundColor, textColor);
     ctx.save();
     array = constantIterateArray(array);
     printTotalArray(array);
