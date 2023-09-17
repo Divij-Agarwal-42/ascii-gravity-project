@@ -13,11 +13,22 @@
             <button id="AnimateButton">Animate!</button>
             <button id="StopButton">Reload Animation Canvas</button>
             <p></p>
+            Gravity! <input type="radio" id="down" name="gravity" value="down" checked>
+            <label for="html">Down</label>
+            <input type="radio" id="up" name="gravity" value="up">
+            <label for="css">Up</label>
+            <input type="radio" id="left" name="gravity" value="left">
+            <label for="javascript">Left</label> 
+            <input type="radio" id="right" name="gravity" value="right">
+            <label for="javascript">Right</label> <p></p>
+            Gravity Speed: <p></p>
+            <input type="range" min="1" max="100" value="50" class="slider" id="GravityInput" display="inline-block" vertical-align="middle">
+            <p></p>
             Enter Background Color: <input id ="ColorInput" type="text"/>
             Enter Text Color: <input id ="Color2Input" type="text"/>
             <button id="DarkButton">Implement Changes</button>
             <p></p>
-            <canvas id="canvas" width="1000" height="500"
+            <canvas id="canvas" width="1350" height="500"
             style="border:1px solid black">
             </canvas>
         </center>
