@@ -1,5 +1,7 @@
 **Project Title:** Interactive ASCII Gravity Simulator
 
+**Link to site:** https://divij-agarwal-42.github.io/ascii-gravity-project/
+
 **Project Description:**
 
 The Interactive ASCII Gravity Simulator is an engaging and interactive project that provides users with a unique experience of exploring the effects of gravity and anti-gravity on alphabetic characters. This fun and educational application allow users to input alphabets and watch as they come to life on the screen, influenced by the force of gravity. Moreover, a special anti-gravity button enables users to reverse the effects, defying gravity and observing the characters ascend.
