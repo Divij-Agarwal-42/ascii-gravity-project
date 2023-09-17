@@ -22,9 +22,15 @@ const sleep = (time) => {
 document.getElementById("InitializeButton").addEventListener("click", function() {
     gravitySpeed = document.getElementById("GravityInput").value;
     userInput = document.getElementById("TextInput").value;
-    modifyUserString(userInput);
-    ctx.font = "bold 8px Arial";
-    printTotalArray(array);
+    if(containsOnlyLetters(userInput)){
+        modifyUserString(userInput);
+        ctx.font = "bold 8px Arial";
+        printTotalArray(array);
+    } else{
+        alert("Enter only letters to the text input.");
+        clearInput("TextInput");
+        //location.reload();
+    }
 });
 document.getElementById("AnimateButton").addEventListener("click", function() {
     let userInput = document.getElementById("TextInput").value;
@@ -42,6 +48,10 @@ document.getElementById("DarkButton").addEventListener("click", function() {
     clearInput("ColorInput");
     clearInput("Color2Input");
 });
+
+function containsOnlyLetters(str) {
+    return /^[a-z]+$/i.test(str);
+}
 
 function clearInput(element){
     var getValue= document.getElementById(element);
@@ -136,25 +146,25 @@ function colorScheme(background, text){
 
 async function draw(){
     var ele = document.getElementsByName('gravity');
-    var multiplier = 0.25;
+    var multiplier = 150;
     gravitySpeed = document.getElementById("GravityInput").value;
     colorScheme(backgroundColor, textColor);
     ctx.save();
     if(ele[0].checked){
         array = constantIterateArrayDown(array);
-        multiplier = 0.75;
+        multiplier = 150;
     } else if (ele[1].checked){
         array = constantIterateArrayUp(array);
-        multiplier = 0.75;
+        multiplier = 15;
     } else if (ele[2].checked){
         array = constantIterateArrayLeft(array);
-        multiplier = 15;
+        multiplier = 0.01;
     } else if (ele[3].checked){
         array = constantIterateArrayRight(array);
-        multiplier = 15;
+        multiplier = 0.01;
     }
     printTotalArray(array);
-    await sleep(gravitySpeed/multiplier);
+    await sleep((1/gravitySpeed) * multiplier);
     window.requestAnimationFrame(draw);
 }
 
