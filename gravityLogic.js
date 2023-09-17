@@ -388,6 +388,12 @@ function G(start_index) {
     vertical_slab_C(start_index + 20, 7, 3);
 }
 
+function W(start_index) {
+    vertical_slab_H(start_index, 1, 14);
+    horizontal_slab(start_index, 12);
+    vertical_slab_C(start_index + 16, 6, 6, 7);
+}
+
 function modifyUserString(input){
 
     // Makes an array that has spaces
