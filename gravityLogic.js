@@ -29,7 +29,6 @@ document.getElementById("InitializeButton").addEventListener("click", function()
     } else{
         alert("Enter only letters to the text input.");
         clearInput("TextInput");
-        //location.reload();
     }
 });
 document.getElementById("AnimateButton").addEventListener("click", function() {
