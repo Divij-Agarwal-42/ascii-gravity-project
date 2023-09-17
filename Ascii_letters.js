@@ -85,7 +85,6 @@ function horizontal_slab(startX, startY, height = 3, width = 40){
 
 //2, 2, 4, 3, 5
 
-
 function vertical_slab_H(startX, startY, height = 4, width = 10, space = 20){
     for (i = 0; i < height; i++) {
         for (j = 0; j < ((2*width) + space); j++) {
