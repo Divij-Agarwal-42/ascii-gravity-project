@@ -63,7 +63,7 @@ var array = [];
 var x_limit = 200;
 var y_limit = 150;
 var char_ = ".";
-var input_str = "jab";
+var input_str = "gqzm";
 
 
 // Makes an array that has spaces
@@ -108,7 +108,7 @@ function vertical_slab_C(startX, startY, height = 8, width = 12) {
     }
 }
 
-function vertical_slab_mid(startX, startY, height = 8, width = 12) {
+function vertical_slab_mid(startX, startY, height = 8, width = 20) {
     for (i = 0; i < 40; i++) {
         for (j = 0; j < height; j++) {
             if (i < (40 - width) && (i > width)) {
@@ -117,6 +117,31 @@ function vertical_slab_mid(startX, startY, height = 8, width = 12) {
         }
     }
 }
+
+function positive_slope(startX, startY, height = 10, width = 5, m = 1) {
+    for (i = 0; i < height; i++) {
+        for (j = 0; j < width; j++) {
+            if (i == j) {
+                for (n = 0; n < width; n++){
+                    array[startY + i][startX + j + n] = char_;
+                }
+            }
+        }
+    }
+}
+
+function negative_slope(startX, startY, height = 10, width = 5, m = 0) {
+    for (i = height; i > 0; i--) {
+        for (j = width; j > 0; j--) {
+            if (i == j) {
+                for (n = 0; n < width; n++){
+                    array[startY + height - i][startX + width + j - n] = char_;
+                }
+            }
+        }
+    }
+}
+
 function printArray() {
     for (k = 0; k < y_limit; k++) {
         for (q = 0; q < x_limit; q++) {
@@ -125,14 +150,12 @@ function printArray() {
         document.write("<br>");
     }
 }
-
 function A(start_index) {
     horizontal_slab(start_index, 1);
     vertical_slab_H(start_index, 4);
     horizontal_slab(start_index, 8);
     vertical_slab_H(start_index, 11);
 }
-
 function B(start_index) {
     horizontal_slab(start_index, 1, 3, 37);
     vertical_slab_H(start_index, 4, 3);
@@ -140,19 +163,16 @@ function B(start_index) {
     vertical_slab_H(start_index, 10, 2);
     horizontal_slab(start_index, 12, 3, 37);
 }
-
 function C(start_index) {
     horizontal_slab(start_index, 1);
     vertical_slab_C(start_index, 4);
     horizontal_slab(start_index, 12);
 }
-
 function D(start_index) {
     horizontal_slab(start_index, 1, 3, 37);
     vertical_slab_H(start_index, 4, 8);
     horizontal_slab(start_index, 12, 3, 37);
 }
-
 function E(start_index) {
     horizontal_slab(start_index, 1);
     vertical_slab_C(start_index, 4, 2);
@@ -160,80 +180,125 @@ function E(start_index) {
     vertical_slab_C(start_index, 9, 3);
     horizontal_slab(start_index, 12,);
 }
-
 function F(start_index) {
     horizontal_slab(start_index, 1);
     vertical_slab_C(start_index, 4, 2);
     horizontal_slab(start_index, 6, 3, 30);
     vertical_slab_C(start_index, 9, 6);
 }
-
 function G(start_index) {
     horizontal_slab(start_index, 1);
     vertical_slab_C(start_index, 4);
 }
-
 function H(start_index) {
     vertical_slab_H(start_index, 1, 5);
     horizontal_slab(start_index, 6);
     vertical_slab_H(start_index, 9, 6);
 }
-
 function L(start_index) {
     vertical_slab_C(start_index, 1, 11);
     horizontal_slab(start_index, 12)
 }
-
 function O(start_index) {
     horizontal_slab(start_index, 1);
     vertical_slab_H(start_index, 4, 8);
     horizontal_slab(start_index, 12);
 }
-
 function P(start_index) {
     horizontal_slab(start_index, 1);
     vertical_slab_H(start_index, 4, 3);
     horizontal_slab(start_index, 7);
     vertical_slab_C(start_index, 10, 5);
 }
-
 function R(start_index) {
     horizontal_slab(start_index, 1, 3, 37);
     vertical_slab_H(start_index, 4);
     horizontal_slab(start_index, 7, 3, 35);
     vertical_slab_H(start_index, 10, 5);
 }
-
 function U(start_index) {
 
     vertical_slab_H(start_index, 1, 11);
     horizontal_slab(start_index, 12);
 }
-
 function I(start_index) {
     horizontal_slab(start_index, 1);
     vertical_slab_mid(start_index, 4);
     horizontal_slab(start_index, 12);
 }
-
 function Y(start_index) {
     vertical_slab_H(start_index, 1, 5);
     horizontal_slab(start_index, 6, 2);
     vertical_slab_mid(start_index, 8, 7, 13);
 
 }
-
 function T(start_index) {
     horizontal_slab(start_index, 1);
     vertical_slab_mid(start_index, 4, 11, 13);
 }
-
 function J(start_index) {
     horizontal_slab(start_index, 1);
     vertical_slab_mid(start_index, 4, 8, 13);
     horizontal_slab(start_index, 12, 3, 27);
 }
+function X(start_index) {
+    positive_slope(start_index, 1, 7, 10);
+    negative_slope(start_index + 20, 1, 7, 10);
+    positive_slope(start_index + 20, 8, 7, 10);
+    negative_slope(start_index + 20, 1, 7, 10);
+    negative_slope(start_index, 8, 7, 10);
+    vertical_slab_mid(start_index, 7, 3, 13);
+}
+function V(start_index) {
+    positive_slope(start_index, 5, 10, 10);
+    negative_slope(start_index + 20, 5, 10, 10);
+    vertical_slab_H(start_index, 1, 5);
+    vertical_slab_mid(start_index, 13, 2, 15);
+}
+function N(start_index) {
+    vertical_slab_H(start_index, 1, 14, 12);
+    positive_slope(start_index + 11, 1, 25, 10);
+    positive_slope(start_index + 16, 6, 9, 10);
+}
+function Z(start_index) {
+    horizontal_slab(start_index, 1, 3, 35);
+    negative_slope(start_index + 5, 4, 10, 17);
+    horizontal_slab(start_index + 5, 12, 3, 35);
+}
+function K(start_index) {
+    vertical_slab_C(start_index, 1, 14);
+    positive_slope(start_index + 20, 8, 7, 14);
+    negative_slope(start_index + 20, 1, 7, 14);
+    vertical_slab_mid(start_index, 7, 3, 10);
 
+}
+function S(start_index) {
+    horizontal_slab(start_index, 1);
+    horizontal_slab(start_index, 12);
+    horizontal_slab(start_index, 6);
+    vertical_slab_C(start_index, 1, 5);
+    vertical_slab_C(start_index + 29, 7, 5);
+}
+function Q(start_index) {
+    horizontal_slab(start_index + 2, 1, 1, 30);
+    horizontal_slab(start_index, 2, 1, 36);
+    vertical_slab_C(start_index, 3, 10);
+    vertical_slab_C(start_index + 25, 3, 7);
+    horizontal_slab(start_index + 3, 12, 2, 18);
+    positive_slope(start_index + 21, 10, 5, 13);
+}
+function M(start_index) {
+    horizontal_slab(start_index, 1);
+    vertical_slab_H(start_index, 4, 11);
+    vertical_slab_C(start_index + 16, 4, 5, 7);
+}
+function G(start_index) {
+    horizontal_slab(start_index, 1);
+    vertical_slab_C(start_index, 4, 8);
+    horizontal_slab(start_index, 12);
+    vertical_slab_C(start_index + 28, 7, 5);
+    vertical_slab_C(start_index + 20, 7, 3);
+}
 
 var start_x = 1;
 var gap = 50;
