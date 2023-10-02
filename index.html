@@ -43,6 +43,10 @@ body, html {
 
     }
 
+#noteText {
+  visibility: hidden;
+}
+
 .w3-wide {letter-spacing: 10px;}
 .w3-hover-opacity {cursor: pointer;}
 
@@ -94,6 +98,7 @@ body, html {
 
 #textArea {
   background-color: white;
+  visibility: hidden;
 }
 .validColors {
   color: rgb(92, 142, 213);
@@ -158,31 +163,32 @@ body, html {
     <center>
       <h1>Gravity Canvas</h1>
 
+      <div class = "colorSelection">
+        Enter Background Color: <input id ="ColorInput" type="text"/>
+        Enter Text Color: <input id ="Color2Input" type="text"/>
+        <button class = "canvasButton" id="DarkButton">Implement Changes</button>
+        <p></p>
+      </div>
+
       <div id = "textArea">
-      Text to Display: <input id ="TextInput" type="text"/>
-      <button class = "canvasButton" id="InitializeButton">Draw Initial Image!</button>
-      <button class = "canvasButton" id="AnimateButton">Animate!</button>
-      <button class = "canvasButton"id="StopButton">Reload Animation Canvas</button>
-      <p></p>
-      Gravity! <input type="radio" id="down" name="gravity" value="down" checked>
-      <label for="html">Down</label>
-      <input type="radio" id="up" name="gravity" value="up">
-      <label for="css">Up</label>
-      <input type="radio" id="left" name="gravity" value="left">
-      <label for="javascript">Left</label> 
-      <input type="radio" id="right" name="gravity" value="right">
-      <label for="javascript">Right</label> <p></p>
-      Gravity Speed: <p></p>
-      <input type="range" min="1" max="100" value="50" class="slider" id="GravityInput" display="inline-block" vertical-align="middle">
-      <p></p>
+        Text to Display: <input id ="TextInput" type="text"/>
+        <button class = "canvasButton" id="InitializeButton">Draw Initial Image!</button>
+        <button class = "canvasButton" id="AnimateButton">Animate!</button>
+        <button class = "canvasButton"id="StopButton">Reload Animation Canvas</button>
+        <p id = "noteText"><i>Note: Click "Reload Animation Canvas" button before entering new text</i></p>
+        Gravity: <input type="radio" id="down" name="gravity" value="down" checked>
+        <label for="html">Down</label>
+        <input type="radio" id="up" name="gravity" value="up">
+        <label for="css">Up</label>
+        <input type="radio" id="left" name="gravity" value="left">
+        <label for="javascript">Left</label> 
+        <input type="radio" id="right" name="gravity" value="right">
+        <label for="javascript">Right</label> <p></p>
+        Gravity Speed: <p></p>
+        <input type="range" min="1" max="100" value="50" class="slider" id="GravityInput" display="inline-block" vertical-align="middle">
+        <p></p>
       </div>
       
-      <div class = "colorSelection">
-      Enter Background Color: <input id ="ColorInput" type="text"/>
-      Enter Text Color: <input id ="Color2Input" type="text"/>
-      <button class = "canvasButton" id="DarkButton">Implement Changes</button>
-      <p></p>
-      </div>
       <canvas id="canvas" width="1350" height="500"
       style="border:1px solid black">
       </canvas>
@@ -270,6 +276,11 @@ function toggleFunction() {
         x.className = x.className.replace(" w3-show", "");
     }
 }
+
+function showMore() {
+  document.getElementById("textArea").style.visibility = "visible";
+}
+
 </script>
 
 </body>

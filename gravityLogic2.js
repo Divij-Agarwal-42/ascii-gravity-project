@@ -30,6 +30,8 @@ document.getElementById("InitializeButton").addEventListener("click", function()
         alert("Enter only letters to the text input.");
         clearInput("TextInput");
     }
+
+    document.getElementById("noteText").style.visibility = "visible";
 });
 document.getElementById("AnimateButton").addEventListener("click", function() {
     let userInput = document.getElementById("TextInput").value;
@@ -46,6 +48,8 @@ document.getElementById("DarkButton").addEventListener("click", function() {
     colorScheme(backgroundColor, textColor);
     clearInput("ColorInput");
     clearInput("Color2Input");
+    showMore()
+
 });
 
 function containsOnlyLetters(str) {
