@@ -16,4 +16,5 @@ The Interactive ASCII Gravity Simulator is an engaging and interactive project t
 
 5. **Customization:** Users can personalize their experience by customizing the color of the characters and the background.
 
+
 **Programming Languages:** This project has been implemented using HTML, CSS, and JavaScript.
